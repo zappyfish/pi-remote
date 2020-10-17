@@ -6,7 +6,7 @@ class IRDevice {
   ~IRDevice() = default;
 
 private:
-  static bool gpio_setup_done_= false;
+  static bool gpio_setup_done_;
   const int pin_num_;
 
 protected:
@@ -32,7 +32,10 @@ public:
   void turnOn() { setState(true); }
   void turnOff() { setState(false); }
 
-  bool switchState() { setState(!on_); }
+  bool switchState() {
+    setState(!on_);
+    return on_;
+  }
 
   bool isOn() { return on_; }
 

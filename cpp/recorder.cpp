@@ -4,7 +4,7 @@
 
 bool done(const std::chrono::steady_clock::time_point& begin, const unsigned duration_seconds) {
   std::chrono::steady_clock::time_point cur = std::chrono::steady_clock::now();
-  const unsigned time_s = std::chrono::duration_cast<std::chrono::seconds>(end - begin).count()
+  const unsigned time_s = std::chrono::duration_cast<std::chrono::seconds>(cur - begin).count()
 
   return time_s > duration_seconds;
 }

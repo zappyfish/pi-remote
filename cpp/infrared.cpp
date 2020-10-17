@@ -2,6 +2,8 @@
 #include "infrared.h"
 #include <chrono>
 
+bool IRDevice::gpio_setup_done_ = false;
+
 void setupInterrupt() {
   const char[] command = "gpio edge 17 both";
   system(command);
@@ -32,7 +34,9 @@ unsigned Receiver::millisecondsUntilChange() {
   return std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
 }
 
-Emitter::Emitter() : IRDEvice(23, OUTPUT) {}
+Emitter::Emitter() : IRDevice(23, OUTPUT), on_(false) {
+  turnOff();
+}
 
 void Emitter::setState(bool on) {
   digitalWrite(pinNum(), (on ? HIGH : LOW));
