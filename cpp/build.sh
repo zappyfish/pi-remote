@@ -1,1 +1,1 @@
-gcc -Wall -o record record.cpp recorder.cpp infrared.cpp recorder.h infrared.h -lwiringPi
+gcc -Wall -o record record.cpp recorder.cpp infrared.cpp -lwiringPi

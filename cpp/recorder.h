@@ -10,7 +10,7 @@ public:
 Recorder() = default;
 ~Recorder() = default;
 
-void record(const unsigned seconds, const std::string& output_path);
+void record(const unsigned duration_seconds, const std::string& output_path);
 
 private:
   Receiver receiver_;
