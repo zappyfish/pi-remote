@@ -2,6 +2,7 @@
 
 class IRDevice {
 
+public:
   IRDevice(const int pin_num, const int mode);
   ~IRDevice() = default;
 
@@ -29,6 +30,8 @@ public:
   Emitter();
   ~Emitter() = default;
 
+  void setState(const bool on);
+
   void turnOn() { setState(true); }
   void turnOff() { setState(false); }
 
@@ -41,6 +44,4 @@ public:
 
 private:
   bool on_;
-
-  void setState(const bool on);
 };
