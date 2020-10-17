@@ -1,3 +1,4 @@
+#pragma once
 
 class IRDevice {
 
@@ -10,7 +11,7 @@ private:
 
 protected:
   int pinNum() { return pin_num_; }
-}
+};
 
 class Receiver : public IRDevice {
 public:
@@ -18,6 +19,8 @@ public:
   ~Receiver() = default;
 
   bool read();
+
+  unsigned millisecondsUntilChange();
 };
 
 class Emitter : public IRDevice {
@@ -36,5 +39,5 @@ public:
 private:
   bool on_;
 
-  void setState(bool on);
-}
+  void setState(const bool on);
+};
